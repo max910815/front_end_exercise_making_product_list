@@ -11,9 +11,9 @@
 
 <body>
 
-    <header >
+    <header>
         <div class="wrap">
-            <nav class="navbar navbar-light bg-light" >
+            <nav class="navbar navbar-light bg-light">
                 <div class="container">
                     <a class="navbar-brand" href="#">
                         <img src="1.webp" alt="" width="35" height="29">
@@ -22,42 +22,29 @@
                 </div>
             </nav>
         </div>
-        
+
     </header>
 
-    <div class="navandtag">
-        <div class="container">
-            <div class="row d-flex">
-                <ul class="nav nav-tabs">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Active</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#">Link</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#">Link</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled" aria-current="page">Disabled</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
     <img style="width: 100vw; height: 50vh;" src="https://picsum.photos/2000/200/?random=10">
-    </div>
 
     <div class="filter">
         <div class="container">
             <div class="row p-3 m-3">
                 <div class="mb-3">
                     <h4 style="font-weight: bold;">篩選器</h4>
-                    <div class="title pt-3 d-flex">
-                        <label for="formGroupExampleInput" class="form-label d-flex">
-                            <h4>種類</h4>
-                        </label>
+                    <label for="formGroupExampleInput" class="form-label d-flex">
+                        <h4>種類</h4>
+                    </label>
+                    <div class="title pt-3 d-flex flex-wrap">
+                        
                         <div class="form-check mx-5">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheck3C">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckAll" checked>
+                            <label class="form-check-label" for="flexCheck3C">
+                                All
+                            </label>
+                        </div>
+                        <div class="form-check mx-5">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheck3C" checked>
                             <label class="form-check-label" for="flexCheck3C">
                                 3C
                             </label>
@@ -69,22 +56,55 @@
                             </label>
                         </div>
                         <div class="form-check mx-5">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckdrink">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckdrink" checked>
                             <label class="form-check-label" for="flexCheckdrink">
                                 飲料
                             </label>
                         </div>
                     </div>
-                    
+
                 </div>
                 <div class="mb-3">
-                    <label for="customRange1" class="form-label"><h4>商品價格</h4></label>
-                    <input type="range" class="form-range px-5" id="customRange1">
+                    <label for="formGroupExampleInput2" class="form-label">
+                        <h4>商品價格</h4>
+                    </label>
+                    <select class="form-select " aria-label="Default select example">
+                        <option selected>價格範圍</option>
+                        <option value="1">低到高</option>
+                        <option value="2">高到低</option>
+                    </select>
                 </div>
+
                 <div class="mb-3">
-                    <label for="formGroupExampleInput2" class="form-label"><h4>商品名稱</h4></label>
-                    <input type="text" class="form-control px-5" id="formGroupExampleInput2"
-                        placeholder="Another input placeholder">
+                    <label for="formGroupExampleInput2" class="form-label">
+                        <h4>商品名稱</h4>
+                    </label>
+                    <input type="text" class="form-control" id="formGroupExampleInput1"
+                        placeholder="請輸入想查詢的商品名稱 編號 價格 或 種類">
+                    <button class="btn btn-primary my-2" type="submit" id="formControlBtn1">查詢</button>
+
+                    <div id="liveAlertPlaceholder"></div>
+                    <button type="button" class="btn btn-primary d-none" id="liveAlertBtn">查無此項目</button>
+
+                    <div class="modal" id="exampleModel1" tabindex="-1">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">錯誤</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>查無此項目</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Close</button>
+                                    <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -92,229 +112,275 @@
 
     <div class="commodity">
         <div class="container d-flex">
-            <div class="row">
-                <div class="col-md-3">
-                    <div class="card" style="width: 18rem;">
+            <div class="row ">
+                <div class="col-md-4  col-7 m-auto ">
+                    <div class="card m-3 bg-light p-1" style="width: 18rem;">
                         <img src="https://picsum.photos/300/200/?random=10">
                         <div class="card-body">
                             <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                            <p class="card-Number">xxx</p>
+                            <p class="card-Amount">xxx</p>
+                            <p class="card-Price">xxx</p>
+                            <p class="card-ProductType">xxx</p>
+                            <a href="#" class="btn btn-primary">購買</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="card" style="width: 18rem;">
+                <div  class="col-md-4  col-7 m-auto">
+                    <div class="card m-3" style="width: 18rem;">
                         <img src="https://picsum.photos/300/200/?random=10">
                         <div class="card-body">
                             <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                            <p class="card-Number">xxx</p>
+                            <p class="card-Amount">xxx</p>
+                            <p class="card-Price">xxx</p>
+                            <p class="card-ProductType">xxx</p>
+                            <a href="#" class="btn btn-primary">購買</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="card" style="width: 18rem;">
+                <div class="col-md-4  col-7 m-auto">
+                    <div class="card m-3 bg-light p-1" style="width: 18rem;">
                         <img src="https://picsum.photos/300/200/?random=10">
                         <div class="card-body">
                             <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                            <p class="card-Number">xxx</p>
+                            <p class="card-Amount">xxx</p>
+                            <p class="card-Price">xxx</p>
+                            <p class="card-ProductType">xxx</p>
+                            <a href="#" class="btn btn-primary">購買</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="card" style="width: 18rem;">
+                <div  class="col-md-4  col-7 m-auto">
+                    <div class="card m-3" style="width: 18rem;">
                         <img src="https://picsum.photos/300/200/?random=10">
                         <div class="card-body">
                             <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                            <p class="card-Number">xxx</p>
+                            <p class="card-Amount">xxx</p>
+                            <p class="card-Price">xxx</p>
+                            <p class="card-ProductType">xxx</p>
+                            <a href="#" class="btn btn-primary">購買</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="card" style="width: 18rem;">
+                <div class="col-md-4  col-7 m-auto">
+                    <div class="card m-3 bg-light p-1" style="width: 18rem;">
                         <img src="https://picsum.photos/300/200/?random=10">
                         <div class="card-body">
                             <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                            <p class="card-Number">xxx</p>
+                            <p class="card-Amount">xxx</p>
+                            <p class="card-Price">xxx</p>
+                            <p class="card-ProductType">xxx</p>
+                            <a href="#" class="btn btn-primary">購買</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="card" style="width: 18rem;">
+                <div  class="col-md-4  col-7 m-auto">
+                    <div class="card m-3" style="width: 18rem;">
                         <img src="https://picsum.photos/300/200/?random=10">
                         <div class="card-body">
                             <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                            <p class="card-Number">xxx</p>
+                            <p class="card-Amount">xxx</p>
+                            <p class="card-Price">xxx</p>
+                            <p class="card-ProductType">xxx</p>
+                            <a href="#" class="btn btn-primary">購買</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="card" style="width: 18rem;">
+                <div class="col-md-4  col-7 m-auto">
+                    <div class="card m-3 bg-light p-1" style="width: 18rem;">
                         <img src="https://picsum.photos/300/200/?random=10">
                         <div class="card-body">
                             <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                            <p class="card-Number">xxx</p>
+                            <p class="card-Amount">xxx</p>
+                            <p class="card-Price">xxx</p>
+                            <p class="card-ProductType">xxx</p>
+                            <a href="#" class="btn btn-primary">購買</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="card" style="width: 18rem;">
+                <div  class="col-md-4  col-7 m-auto">
+                    <div class="card m-3" style="width: 18rem;">
                         <img src="https://picsum.photos/300/200/?random=10">
                         <div class="card-body">
                             <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                            <p class="card-Number">xxx</p>
+                            <p class="card-Amount">xxx</p>
+                            <p class="card-Price">xxx</p>
+                            <p class="card-ProductType">xxx</p>
+                            <a href="#" class="btn btn-primary">購買</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="card" style="width: 18rem;">
+                <div class="col-md-4  col-7 m-auto">
+                    <div class="card m-3 bg-light p-1" style="width: 18rem;">
                         <img src="https://picsum.photos/300/200/?random=10">
                         <div class="card-body">
                             <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                            <p class="card-Number">xxx</p>
+                            <p class="card-Amount">xxx</p>
+                            <p class="card-Price">xxx</p>
+                            <p class="card-ProductType">xxx</p>
+                            <a href="#" class="btn btn-primary">購買</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="card" style="width: 18rem;">
+                <div  class="col-md-4  col-7 m-auto">
+                    <div class="card m-3" style="width: 18rem;">
                         <img src="https://picsum.photos/300/200/?random=10">
                         <div class="card-body">
                             <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                            <p class="card-Number">xxx</p>
+                            <p class="card-Amount">xxx</p>
+                            <p class="card-Price">xxx</p>
+                            <p class="card-ProductType">xxx</p>
+                            <a href="#" class="btn btn-primary">購買</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="card" style="width: 18rem;">
+                <div class="col-md-4  col-7 m-auto">
+                    <div class="card m-3 bg-light p-1" style="width: 18rem;">
                         <img src="https://picsum.photos/300/200/?random=10">
                         <div class="card-body">
                             <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                            <p class="card-Number">xxx</p>
+                            <p class="card-Amount">xxx</p>
+                            <p class="card-Price">xxx</p>
+                            <p class="card-ProductType">xxx</p>
+                            <a href="#" class="btn btn-primary">購買</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="card" style="width: 18rem;">
+                <div  class="col-md-4  col-7 m-auto">
+                    <div class="card m-3" style="width: 18rem;">
                         <img src="https://picsum.photos/300/200/?random=10">
                         <div class="card-body">
                             <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                            <p class="card-Number">xxx</p>
+                            <p class="card-Amount">xxx</p>
+                            <p class="card-Price">xxx</p>
+                            <p class="card-ProductType">xxx</p>
+                            <a href="#" class="btn btn-primary">購買</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="card" style="width: 18rem;">
+                <div class="col-md-4  col-7 m-auto">
+                    <div class="card m-3 bg-light p-1" style="width: 18rem;">
                         <img src="https://picsum.photos/300/200/?random=10">
                         <div class="card-body">
                             <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                            <p class="card-Number">xxx</p>
+                            <p class="card-Amount">xxx</p>
+                            <p class="card-Price">xxx</p>
+                            <p class="card-ProductType">xxx</p>
+                            <a href="#" class="btn btn-primary">購買</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="card" style="width: 18rem;">
+                <div  class="col-md-4  col-7 m-auto">
+                    <div class="card m-3" style="width: 18rem;">
                         <img src="https://picsum.photos/300/200/?random=10">
                         <div class="card-body">
                             <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                            <p class="card-Number">xxx</p>
+                            <p class="card-Amount">xxx</p>
+                            <p class="card-Price">xxx</p>
+                            <p class="card-ProductType">xxx</p>
+                            <a href="#" class="btn btn-primary">購買</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="card" style="width: 18rem;">
+                <div class="col-md-4  col-7 m-auto">
+                    <div class="card m-3 bg-light p-1" style="width: 18rem;">
                         <img src="https://picsum.photos/300/200/?random=10">
                         <div class="card-body">
                             <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                            <p class="card-Number">xxx</p>
+                            <p class="card-Amount">xxx</p>
+                            <p class="card-Price">xxx</p>
+                            <p class="card-ProductType">xxx</p>
+                            <a href="#" class="btn btn-primary">購買</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="card" style="width: 18rem;">
+                <div  class="col-md-4  col-7 m-auto ">
+                    <div class="card m-3" style="width: 18rem;">
                         <img src="https://picsum.photos/300/200/?random=10">
                         <div class="card-body">
                             <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                            <p class="card-Number">xxx</p>
+                            <p class="card-Amount">xxx</p>
+                            <p class="card-Price">xxx</p>
+                            <p class="card-ProductType">xxx</p>
+                            <a href="#" class="btn btn-primary">購買</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="card" style="width: 18rem;">
+                <div class="col-md-4  col-7 m-auto">
+                    <div class="card m-3 bg-light p-1" style="width: 18rem;">
                         <img src="https://picsum.photos/300/200/?random=10">
                         <div class="card-body">
                             <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                            <p class="card-Number">xxx</p>
+                            <p class="card-Amount">xxx</p>
+                            <p class="card-Price">xxx</p>
+                            <p class="card-ProductType">xxx</p>
+                            <a href="#" class="btn btn-primary">購買</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="card" style="width: 18rem;">
+                <div  class="col-md-4  col-7 m-auto">
+                    <div class="card m-3" style="width: 18rem;">
                         <img src="https://picsum.photos/300/200/?random=10">
                         <div class="card-body">
                             <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                            <p class="card-Number">xxx</p>
+                            <p class="card-Amount">xxx</p>
+                            <p class="card-Price">xxx</p>
+                            <p class="card-ProductType">xxx</p>
+                            <a href="#" class="btn btn-primary">購買</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="card" style="width: 18rem;">
+                <div  class="col-md-4  col-7 m-auto">
+                    <div class="card m-3" style="width: 18rem;">
                         <img src="https://picsum.photos/300/200/?random=10">
                         <div class="card-body">
                             <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                            <p class="card-Number">xxx</p>
+                            <p class="card-Amount">xxx</p>
+                            <p class="card-Price">xxx</p>
+                            <p class="card-ProductType">xxx</p>
+                            <a href="#" class="btn btn-primary">購買</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="card" style="width: 18rem;">
+                <div  class="col-md-4  col-7 m-auto">
+                    <div class="card m-3" style="width: 18rem;">
                         <img src="https://picsum.photos/300/200/?random=10">
                         <div class="card-body">
                             <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                            <p class="card-Number">xxx</p>
+                            <p class="card-Amount">xxx</p>
+                            <p class="card-Price">xxx</p>
+                            <p class="card-ProductType">xxx</p>
+                            <a href="#" class="btn btn-primary">
+                                <img src="" alt="">
+                                購買</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+
+    <div class="search_btn">
+
     </div>
 
 
@@ -323,17 +389,306 @@
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script>
 
-    <script type = "module">
-        import product_json from "./product.js"
-        window.onload  = function(){
-            take_product_Name()
+    <script type="module">
+        import { product } from "./product.js";
+        let ProductName = document.querySelectorAll(".card-title");
+        let number = document.querySelectorAll(".card-Number")
+        let Amount = document.querySelectorAll(".card-Amount");
+        let Price = document.querySelectorAll(".card-Price");
+        let ProductType = document.querySelectorAll(".card-ProductType");
+
+        let check_all = document.getElementById("flexCheckAll");
+        let check_3c = document.getElementById("flexCheck3C");
+        let check_food = document.getElementById("flexCheckfood");
+        let check_drink = document.getElementById("flexCheckdrink");
+
+        let checkbox_input = document.querySelectorAll(".form-check-input");
+
+        let k = 0;
+        let card = document.getElementById("card")
+
+
+        window.onload = function () {
+            take_filter();
+            take_choose_product_Name();
+            take_price_range();
+            take_search_result();
         }
 
-        function take_product_Name(){
-            let ProductName = document.querySelectorAll(".card-title");
-            product_json.forEach(Name => {
-                ProductName.innerText = Name.ProductName;
+        function take_filter() {
+
+            check_all.addEventListener("change", function () {
+                const isChecked = check_all.checked;
+                check_3c.checked = isChecked;
+                check_food.checked = isChecked;
+                check_drink.checked = isChecked;
             });
+            check_all.checked = false;
+            check_3c.checked = false;
+            check_food.checked = false;
+            check_drink.checked = false;
         }
+
+
+        function take_choose_product_Name() {
+
+            let isCheckAll = check_all.checked;
+            let isChecked3C = check_3c.checked;
+            let isCheckedFood = check_food.checked;
+            let isCheckedDrink = check_drink.checked;
+            console.log("isChecked3C = " + isChecked3C);
+            console.log("isCheckedFood = " + isCheckedFood);
+            console.log("isCheckedDrink = " + isCheckedDrink);
+            console.log("isCheckAll = " + isCheckAll)
+            k = 0;
+
+            for (let i = 0; i < product.length; i++) {
+                ProductName[k].textContent = product[i].ProductName;
+                number[k].textContent = "編號 : " + product[i].ProductNumber;
+                Amount[k].textContent = "數量 : " + product[i].Amount;
+                Price[k].textContent = "價格 : " + product[i].Price;
+                ProductType[k].textContent = "類型 : " + product[i].ProductType;
+                k++;
+
+                let col_md_3 = ProductName[i].parentNode.parentNode;
+                col_md_3.style.display = "none";
+            }
+            for (let i = 0; i < ProductName.length; i++) {
+                if (ProductName[i].textContent == "Card title") {
+                    let col_md_3 = ProductName[i].parentNode.parentNode;
+                    col_md_3.style.display = "none";
+                }
+            }
+
+            check_3c.addEventListener("change", function () {
+                isChecked3C = check_3c.checked;
+                if (isChecked3C) {
+                    console.log("3c")
+                    for (let i = 0; i < product.length; i++) {
+                        console.log(k)
+                        if (product[i].ProductType === "3C") {
+                            let col_md_3 = ProductName[i].parentNode.parentNode;
+                            col_md_3.style.display = "flex";
+                        }
+                    }
+                } else {
+                    console.log("3c")
+                    for (let i = 0; i < product.length; i++) {
+                        console.log(k)
+                        if (product[i].ProductType === "3C") {
+                            let col_md_3 = ProductName[i].parentNode.parentNode;
+                            col_md_3.style.display = "none";
+                        }
+                    }
+                }
+            })
+
+            check_drink.addEventListener("change", function () {
+                isCheckedDrink = check_drink.checked
+                if (isCheckedDrink) {
+                    console.log("drink")
+                    for (let i = 0; i < product.length; i++) {
+                        console.log(k)
+                        if (product[i].ProductType === "飲料") {
+                            let col_md_3 = ProductName[i].parentNode.parentNode;
+                            col_md_3.style.display = "flex";
+                        }
+                    }
+                } else {
+                    console.log("drink")
+                    for (let i = 0; i < product.length; i++) {
+                        console.log(k)
+                        if (product[i].ProductType === "飲料") {
+                            let col_md_3 = ProductName[i].parentNode.parentNode;
+                            col_md_3.style.display = "none";
+                        }
+                    }
+                }
+            })
+
+            check_food.addEventListener("change", function () {
+                console.log("食品")
+                console.log(isCheckedFood);
+                isCheckedFood = check_food.checked;
+                if (isCheckedFood) {
+                    console.log("food")
+                    for (let i = 0; i < product.length; i++) {
+                        console.log(k)
+                        if (product[i].ProductType === "食品") {
+                            let col_md_3 = ProductName[i].parentNode.parentNode;
+                            col_md_3.style.display = "flex";
+                        }
+                    }
+                } else {
+                    console.log("food")
+                    for (let i = 0; i < product.length; i++) {
+                        console.log(k)
+                        if (product[i].ProductType === "食品") {
+                            let col_md_3 = ProductName[i].parentNode.parentNode;
+                            col_md_3.style.display = "none";
+                        }
+                    }
+                }
+            })
+
+            check_all.addEventListener("change", function () {
+                isCheckAll = check_all.checked;
+                if (isCheckAll) {
+                    console.log("All")
+                    for (let i = 0; i < product.length; i++) {
+                        console.log(k)
+                        let col_md_3 = ProductName[i].parentNode.parentNode;
+                        col_md_3.style.display = "flex";
+
+                    }
+                } else {
+                    for (let i = 0; i < product.length; i++) {
+                        console.log(k)
+                        let col_md_3 = ProductName[i].parentNode.parentNode;
+                        col_md_3.style.display = "none";
+                    }
+                }
+            })
+
+        }
+
+        function take_price_range() {
+            let price_select = document.querySelector(".form-select");
+
+            price_select.addEventListener("change", function () {
+                if (price_select.value === "1") {
+                    console.log("price value = 1")
+                    for (let i = 0; i < k; i++) {
+                        for (let j = i + 1; j < k; j++) {
+                            let num1 = parseInt(Price[i].textContent.match(/\d+/));
+                            console.log(num1); // 输出 53
+                            let num2 = parseInt(Price[j].textContent.match(/\d+/));
+                            console.log(num2); // 输出 53
+                            if (num1 > num2) {
+                                
+                                let temp = Price[i].textContent;
+                                Price[i].textContent = Price[j].textContent;
+                                Price[j].textContent = temp;
+
+                                temp = ProductName[i].textContent;
+                                ProductName[i].textContent = ProductName[j].textContent;
+                                ProductName[j].textContent = temp;
+
+                                temp = number[i].textContent;
+                                number[i].textContent = number[j].textContent;
+                                number[j].textContent = temp;
+
+                                temp = Amount[i].textContent;
+                                Amount[i].textContent = Amount[j].textContent;
+                                Amount[j].textContent = temp;
+
+                                temp = ProductType[i].textContent;
+                                ProductType[i].textContent = ProductType[j].textContent;
+                                ProductType[j].textContent = temp;
+
+                                console.log(Price[i].textContent, Price[j].textContent)
+                            }
+                        }
+                    }
+                } else if (price_select.value === "2") {
+                    console.log("price value = 2")
+                    for (let i = 0; i < k; i++) {
+                        for (let j = i + 1; j < k; j++) {
+                            console.log(Number(Price[i].textContent) , Number(Price[j].textContent))
+                            if (num1 < num2) {
+                                console.log(`first ${Price[i].textContent}, ${Price[j].textContent}`)
+                                let temp = Price[i].textContent;
+                                Price[i].textContent = Price[j].textContent;
+                                Price[j].textContent = temp;
+
+                                temp = ProductName[i].textContent;
+                                ProductName[i].textContent = ProductName[j].textContent;
+                                ProductName[j].textContent = temp;
+
+                                temp = number[i].textContent;
+                                number[i].textContent = number[j].textContent;
+                                number[j].textContent = temp;
+
+                                temp = Amount[i].textContent;
+                                Amount[i].textContent = Amount[j].textContent;
+                                Amount[j].textContent = temp;
+
+                                temp = ProductType[i].textContent;
+                                ProductType[i].textContent = ProductType[j].textContent;
+                                ProductType[j].textContent = temp;
+
+                                console.log(Price[i].textContent, Price[j].textContent)
+                            }
+                        }
+                    }
+                }
+            })
+        }
+
+
+        function take_search_result() {
+            let search_text = document.getElementById("formGroupExampleInput1");
+            let btn = document.getElementById("formControlBtn1");
+
+            var kk = 0;
+
+            var alertTrigger = document.getElementById('liveAlertBtn')
+
+            btn.addEventListener("click", function () {
+
+                var product_inside = false;
+
+                console.log(search_text.value)
+                console.log(typeof search_text.value)
+                for (let i = 0; i < product.length; i++) {
+                    if (ProductName[i].textContent.indexOf(search_text.value) !== -1 ||
+                        "編號 : " + search_text.value === number[i].textContent ||
+                        "數量 : " + search_text.value === Amount[i].textContent ||
+                        "價格 : " + search_text.value === Price[i].textContent ||
+                        ProductType[i].textContent.indexOf(search_text.value) !== -1) {
+
+                        product_inside = true;
+
+                        if (ProductName[i].textContent.indexOf(search_text.value) !== -1) {
+                            let col_md_3 = ProductName[i].parentNode.parentNode;
+                            col_md_3.style.display = "flex";
+                        }
+
+                        if ("編號 : " + search_text.value === number[i].textContent) {
+                            let col_md_3 = number[i].parentNode.parentNode;
+                            col_md_3.style.display = "flex";
+                        }
+
+                        if ("數量 : " + search_text.value === Amount[i].textContent) {
+                            let col_md_3 = Amount[i].parentNode.parentNode;
+                            col_md_3.style.display = "flex";
+                        }
+
+                        if ("價格 : " + search_text.value === Price[i].textContent) {
+                            let col_md_3 = Price[i].parentNode.parentNode;
+                            col_md_3.style.display = "flex";
+                        }
+
+                        if (ProductType[i].textContent.indexOf(search_text.value) !== -1) {
+                            let col_md_3 = ProductType[i].parentNode.parentNode;
+                            col_md_3.style.display = "flex";
+                        }
+                    } else {
+                        let col_md_3 = ProductName[i].parentNode.parentNode;
+                        col_md_3.style.display = "none";
+                        
+                    }
+                }
+
+                if (!product_inside) {
+                    console.log("product_inside")
+                    var exampleModal = new bootstrap.Modal(document.getElementById('exampleModel1'))
+                    exampleModal.show();
+                    alert('Nice, you triggered this alert message!', 'success')
+                }
+
+            })
+        }
+
     </script>
 </body>
